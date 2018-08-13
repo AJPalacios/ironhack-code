@@ -1,0 +1,235 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+nav{
+  background-color: #C12127;
+  color: rgba(255, 255,255,0.8);
+  height: 50px;
+}
+header{
+  color: white;
+  background-color: rgb(32, 101, 136);
+  background-image: url(images/city-scape.svg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+.npm-logo{
+  width: 70px;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.bear-logo{
+  margin-right: 10px;
+  margin-top: -10px;
+  margin-left: 10px;
+}
+form{
+  width: 80%;
+  margin-left: 20px;
+}
+form input{
+  background-color: #1d4e69;
+  width: 80vw;
+  letter-spacing: 0px;
+  border: none;
+  height: 40px;
+  padding-top: 6px;
+  padding-left: 10px;
+  width: calc(80vw - 50px);
+  border: 1px solid gray;
+}
+::placeholder {
+  font-weight: 500;
+  color: white;
+  opacity: 1; 
+}
+.input-container{
+  width: 82%;
+}
+.margin-top-20{
+  margin-top: -30px;
+}
+#city{
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+}
+.font-2-5{
+  font-size: 2.5rem;
+}
+.lh{
+  line-height: 1.5;
+}
+.ul{
+  font-weight: 400;
+}
+.li{
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  font-size: 1.25rem;
+}
+.collaboration{
+  background-color: rgb(39, 53, 71);
+  color: white;
+  height: 80vh;
+}
+.top-3{
+  padding-top: 3rem;
+}
+.collaboration-image{
+  width: 60%;
+  height: 250px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.collaboration-text{
+  margin-right: 20px;
+  margin-top: -250px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 45%;
+}
+.margin-top{
+  margin-top: 20px;
+}
+.margin-bottom{
+  margin-bottom:20px;
+}
+.margin-rigth{
+  margin-right: 20px;
+}
+.collaboration-button{
+  margin: 50px;
+  border-radius: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 60px;
+  padding-left: 60px;
+  background-color: #cb3837;
+  min-width: 500px;
+}
+.collaboration-button-margin{
+  margin-left: -200px;
+}
+.float-right{
+  float: right;
+}
+.no-underline{
+  text-decoration: none;
+  color: white;
+}
+
+.header-logo{
+  width: 70px;
+}
+nav a{
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
+}
+a:link{
+  color: white;
+}
+a:visited{
+  color: white;
+}
+.search-bar{
+  background:#235d7e;
+}
+.top-links{
+  display: inline-block;
+  float: right;
+  padding: 0;
+  margin: 0 20px 0 0;
+}
+.top-links li{
+  display: inline-block;
+  margin: 0 10px;
+}
+.float-left{
+  float: left;
+}
+#section-2{
+  height: 60vh;
+}
+.what-is-description{
+  float: left;
+  margin-left: 200px;
+  margin-top: 100px;
+  color: white;
+  width: 40%;
+  height: 50%;
+}
+.what-is{
+  background-image: url(images/forklift.svg);
+  background-size: cover;
+  position: relative;
+}
+.what-is h2{
+  font-weight: 2.25rem;
+  font-weight: 600;
+}
+.what-is p{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-weight: 400;
+}
+.what-is-button{
+  border-radius: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+  background-color: rgb(49, 68, 88);
+  min-width: 500px;
+}
+.absolute{
+  position: absolute;
+}
+.inline-block{
+  display: inline-block;
+}
+.center-content{
+  margin: 0 auto;
+}
+.what-logos{
+  text-align: center;
+  float: left;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: rgb(135, 145, 156);
+  width: 33.33%;
+  height: 33.33%;
+}
+.what-heading{
+  text-align: center;
+  margin-top: 2rem;
+}
+.what-heading h2{
+  font-size: 2.25rem;
+  padding-top: 1rem;
+  padding-bottom: .25rem;
+  font-weight: 200;
+}
+.what-heading p{
+  padding-bottom: 2rem;
+  line-height: 1.5;
+}
+.what-logos a{
+  color: rgb(208, 74, 73);
+  font-weight: 600;
+}
+.what-logos-items{
+  width: 80%;
+}
+.clearfix{
+  clear: both;
+}
+.text-align{
+  text-align: center;
+}
