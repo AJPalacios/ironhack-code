@@ -132,7 +132,80 @@ function moveForward(){
   console.log("moveForward was called")
 }
 
-function moveBackward(rover){}
+function moveBackward(){
+  var obstacle;
+
+  switch (rover.direction) {
+    
+    case "N":
+      if (rover.direction == 9) {
+        console.log("You have reached the edge of the Mars")
+      }else{
+
+        obstacle = checkObstacle(mars, rover.x - 1, null);
+        if (obstacle == null) {
+          rover.x += 1;
+          currentCoords(mars, rover, rover.x - 1, null);
+        }else{
+          console.log(" Stop you found: " + obstacle);
+        }
+
+      }
+
+      break;
+
+      case "E":
+        if (rover.y == 0) {
+          console.log("You have reached the edge of the Mars")
+        }else{
+          obstacle = checkObstacle(mars, null, rover.y - 1);
+          if (obstacle == null) {
+            
+            rover.y -=1
+            currentCoords(mars, rover, null, rover.y - 1)
+          }else{
+            console.log(" Stop you found: " + obstacle);
+          }
+        }
+
+        break;
+      
+      case "S":
+        if (rover.x == 0) {
+          console.log("You have reached the edge of the Mars")
+        }else{
+          obstacle = checkObstacle(mars, rover.x - 1, null)
+          if (obstacle == null) {
+
+            rover.x -= 1
+            currentCoords(mars, rover, rover.x + 1, null)
+
+          }else{
+            console.log(" Stop you found: " + obstacle);
+          }
+        }
+
+        break;
+      
+      case "W":
+        if (rover.y == 9) {
+          console.log("You have reached the edge of the Mars")
+        }else{
+          obstacle = checkObstacle(mars, null, rover.y +1)
+          if (obstacle == null) {
+            
+            rover.y += 1
+            currentCoords(mars, rover, null, rover.y - 1)
+          }else{
+            console.log(" Stop you found: " + obstacle);
+          }
+        }
+        break;
+
+        travel();
+
+  }
+}
 
 function commands(comm){
 
@@ -150,7 +223,7 @@ function commands(comm){
       turnLeft();
     }else if (command[index] == "f") {
       moveForward();
-    }else if(command[index]){
+    }else if(command[index] == "b"){
       moveBackward();
     }else{
       break;
@@ -177,16 +250,16 @@ function currentCoords(planetTerrain, rover, roverX, roverY){
 
 function checkObstacle(terrain,roverX, roverY){
   if (roverX != null && roverY == null) {
-    if (terrain[roverX][rover.posY] == null) {
+    if (terrain[roverX][rover.y] == null) {
       return null;
     } else {
-      return terrain[roverX][myRobot.posY];
+      return terrain[roverX][rover.y];
     }
   } else if (roverY != null && roverX == null) {
     if (terrain[rover.x][roverY] == null) {
       return null;
     } else {
-      return terrain[myRobot.x][roverY];
+      return terrain[rover.x][roverY];
     }
 }
 }
