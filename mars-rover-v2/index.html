@@ -2,10 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="author" content="Adan Jaciel Palacios Rivas">
   <title>Mars Rover</title>
+  <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="javascripts/app.js?v=1.2"></script>
 </head>
-<body>
+<body onload="createPlanet(mars)">
+  <div class="control-container">
+    <div class="header-text">
+      <h1 class="red">Mars Rover Kata IronHack</h1>
+      <h2>Select the rover and use the buttons to move it around the Martian terrain!</h2>
+      <p>You can also input a command line in the side bar. Commands for forward (f), backwards (b), right (r) and left (l)
+        go as the example: rrfrbl (the rover will turn right twice, go forward, turn right, go backwards and turn left. No
+        difference between uppercase and lowercase.</p>
+    </div>
+    <div id="logConsole" class="logConsole">[Start moving and here you will see the rover status]</div>
+  </div>
 
+  <div class="kata">
+
+    <div class="world">
+      <table id="world"></table>
+    </div>
+
+    <div class="commands">
+
+      <div class="btn-rover">
+        <div>
+          <button onclick="moveForward()">
+            <i class="material-icons">arrow_upward</i>
+          </button>
+        </div>
+        <button onclick="turnLeft()">
+          <i class="material-icons">arrow_back</i>
+        </button>
+        <button onclick="moveBackward()">
+          <i class="material-icons">arrow_downward</i>
+        </button>
+        <button onclick="turnRight()">
+          <i class="material-icons">arrow_forward</i>
+        </button>
+
+      </div>
+      <select id="rover" class="roverSelection" name="rovers">
+        <option value="Mars Rover">Mars Rover</option>
+      </select>
+
+      <div class="reset-btn">
+        <button onclick="window.location.href=window.location.href">
+          <i class="material-icons">autorenew</i>
+          <br>Reset
+        </button>
+      </div>
+      
+      <div class="input-command">
+        <form id="commandline">
+          <label for="commandline">Input Command</label>
+          <input name="commandline" id="roverCommand" type="text">
+          <a id="send" onclick="commands();" href="javascript:void(0);" title="Send">Send to rover!</a>
+        </form>
+
+
+        <div id="travelLog" class="btn-log">
+          <button onclick="showRoad()">
+            <i class="material-icons">directions</i>
+          </button>
+          <p>Show Travel Log</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
 </body>
 </html>

@@ -9,9 +9,9 @@ var rover = {
 console.log(rover.x, rover.y)
 // ======================
 var mars = [
-  ["Alien",null,null,null,null,null,"Alien",null,null,null],
-  ["Alien",null,null,"Alien",null,null,null,null,"Alien",null],
-  ["Alien", null, null, null, null, null, null, null, null, null],
+  [null,"Alien",null,null,null,null,"Alien",null,null,null],
+  [null,null,null,"Alien",null,null,null,null,"Alien",null],
+  [null, null, null, null, null, null, null, null, null, null],
   [null, null, null, "Alien", null, null, "Alien", null, null, null],
   [null, null, null, null, null, null, null, null, null, null],
   ["Alien",null,null,"Alien",null,"Alien",null,"Alien",null,null],
@@ -24,6 +24,8 @@ var mars = [
 // ======================
 
 function moveForward(){
+
+  document.getElementById("logConsole").innerHTML = "Move Forward was called!";
 
   var obstacle;
 
@@ -88,11 +90,14 @@ function moveForward(){
   }
 
   travel(rover)
-
+  editPlanet()
   console.log("moveForward was called")
 }
 
 function moveBackward(){
+
+  document.getElementById("logConsole").innerHTML = "Move Backward was called!";
+
   var obstacle;
 
   switch (rover.direction) {
@@ -162,11 +167,14 @@ function moveBackward(){
 
   }
   travel(rover);
+  editPlanet()
   console.log("moveBackguard was called")
 }
 
 
 function turnLeft(){
+
+  document.getElementById("logConsole").innerHTML = "turn Left was called!";
 
   switch(rover.direction){
     case "N":
@@ -188,6 +196,8 @@ function turnLeft(){
 }
 
 function turnRight(){
+
+  document.getElementById("logConsole").innerHTML = "turn Right was called!";
 
   switch(rover.direction){
     case "N":
@@ -211,14 +221,18 @@ function turnRight(){
 
 function commands(comm){
 
-  var command = comm;
+  var input_value = document.getElementById("roverCommand").value;
+  
+  var command = input_value;
+
+  console.log(command)
 
   var commLower = command.toLowerCase();
 
   var n =  commLower.length;
 
-  for (let index = 0; index < n; index++) {
-    
+  for (var index = 0; index < n; index++) {
+    console.log(command[index])
     if (command[index] == "r") {
       turnRight()
     }else if(command[index] == "l"){
@@ -233,6 +247,8 @@ function commands(comm){
     
   }
 
+  showRoad()
+
 }
 
 function travel(){
@@ -240,7 +256,7 @@ function travel(){
   rover.travelLog.push(rover.y);
 }
 
-function currentCoords(planetTerrain, rover, roverX, roverY){
+function currentCoords(planetTerrain, roverX, roverY){
   if (roverX != null && roverY != null) {
     planetTerrain[rover.x][rover.y] = rover.name;
     planetTerrain[rover.x][rover.y] = null;
@@ -263,6 +279,65 @@ function checkObstacle(terrain,roverX, roverY){
       return null;
     } else {
       return terrain[rover.x][roverY];
+    }
+  }
+}
+
+function showRoad() {
+
+
+
+  var table = document.getElementById("world");
+
+  var myRover = document.getElementById("rover").value;
+
+  var row, travelRow, travelCol;
+  if (myRover == rover.name) {
+    console.log(rover.travelLog.length);
+    console.log(rover.travelLog);
+  }
+  
+
+  for(row  = 0 ; row < rover.travelLog.length-2 ; row++){
+      travelRow = rover.travelLog[row];
+      travelCol = rover.travelLog[row+1];
+      row++;
+      
+      table.rows[travelRow].cells[travelCol].innerHTML = rover.name;
+  }
+
+  document.getElementById("logConsole").innerHTML = "travel Log: " + rover.travelLog ;
+
+}
+
+function createPlanet(planet) {
+  var table = document.getElementById("world");
+  var tr, td, tn, indexRow, indexCol;
+
+  for (indexRow = 0; indexRow < planet.length; indexRow++) {
+    tr = document.createElement("tr");
+    for (indexCol = 0; indexCol < planet[indexRow].length; indexCol++) {
+      td = document.createElement("td");
+      if (planet[indexRow][indexCol] !== null) {
+        tn = document.createTextNode(planet[indexRow][indexCol]);
+        td.appendChild(tn);
+      } else {
+        tn = null;
+      }
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  }
+}
+
+function editPlanet() {
+  var table = document.getElementById("world");
+  var indexRow, indexCol;
+
+  for (indexRow = 0; indexRow < 10; indexRow++) {
+    for (indexCol = 0; indexCol < 10; indexCol++) {
+      table.rows[indexRow].cells[indexCol].innerHTML =
+        mars[indexRow][indexCol];
     }
   }
 }
