@@ -1,0 +1,15 @@
+h1{
+  color: orangered;
+}
+.main-section{
+  text-align: center;
+}
+.main-section p{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.main-section button{
+  color: green;
+  background-color: burlywood;
+  font-family: 'Courier New', Courier, monospace;
+}
